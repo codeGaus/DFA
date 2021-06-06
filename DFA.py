@@ -11,6 +11,12 @@ class DFA:
     def change_state(self, symbol):
         self.state = self.transitions[self.state][symbol]
 
+    def transition_exist(self, symbol):
+        try:
+            self.state = self.transitions[self.state][symbol]
+        except Exception:
+            print("Not Exist")
+
     def test(self, string):
         for x in string:
             self.change_state(x)
